@@ -79,8 +79,8 @@ def upload():
 
         print(torch.sum(output))
 
-        
-    return render_template("report.html", image_name=filename)
+    
+    return labels[int(idx)]
 
 @app.route('/upload/<filename>')
 def send_image(filename):
