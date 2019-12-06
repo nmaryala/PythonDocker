@@ -32,9 +32,9 @@ def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
-@app.route("/")
-def index():
-    return render_template("website.html")
+# @app.route("/")
+# def index():
+#     return render_template("website.html")
 APP_ROOT = os.path.dirname(os.path.abspath(__file__))
 
 @app.route("/upload", methods=["POST"])
