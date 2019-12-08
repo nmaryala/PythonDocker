@@ -1,4 +1,4 @@
-##Run the following instructions for hosting server container
+## Run the following instructions for hosting server container
 1. Building Image: sudo docker build -t python-classify .
 2. Running Image: sudo docker run python-classify
 3. Getting docker instance ID: sudo docker ps -a
