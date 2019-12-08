@@ -1,6 +1,6 @@
 FROM python:3.7
 
-ADD test2.py /
+ADD classifier.py /
 
 RUN pip install pystrich
 RUN pip install flask
@@ -10,4 +10,4 @@ RUN pip install opencv-python
 RUN pip install Pillow
 EXPOSE 5000
 
-CMD [ "python", "./test2.py" ]
+CMD [ "python", "./classifier.py" ]

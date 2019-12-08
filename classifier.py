@@ -1034,15 +1034,11 @@ dic = {0: 'tench, Tinca tinca',
 999: 'toilet tissue, toilet paper, bathroom tissue'}
 
 
-# @app.route("/")
-# def index():
-#     return render_template("website.html")
 APP_ROOT = os.path.dirname(os.path.abspath(__file__))
 
 @app.route("/upload", methods=["POST"])
 def upload():
     target = os.path.join(APP_ROOT, 'images/')
-    # target = os.path.join(APP_ROOT, 'static/')
     print(target)
     if not os.path.isdir(target):
             os.mkdir(target)
@@ -1058,8 +1054,6 @@ def upload():
         print ("Save it to:", destination)
         upload.save(destination)
         name = "images/"+upload.filename
-        # X_test = cv2.imread(name)
-        # img = Image.fromarray(np.uint8(X_test/255))
         x  = Image.open(name)
         img_t = transform(x)
         batch_t = torch.unsqueeze(img_t, 0)
@@ -1069,11 +1063,6 @@ def upload():
         output = densenet121(batch_t)
         print(output.shape)
 
-
-        # with open('classnames.txt') as f:
-        #     classes = [line.strip() for line in f.readlines()]
-
-        # labels = {int((x.split(':')[0]).replace('"',"").replace("'","")):x.split(':')[1].replace('"',"").replace("'","") for x in classes}
 
         _, idx = torch.max(output,1)
 
@@ -1087,9 +1076,6 @@ def upload():
 @app.route('/upload/<filename>')
 def send_image(filename):
     return send_from_directory("images", filename)
-
-# if __name__ == "__main__":
-#     app.run(port=5000, debug=True)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0')
