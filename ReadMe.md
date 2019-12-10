@@ -6,3 +6,7 @@
     - Ubuntu: sudo docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}'  <InstanceId>
 5. Sending image request to container: curl -F "file=@persian.jpg" http://<ipAddress>:5000/upload
     eg. curl -F "file=@persian.jpg" http://172.17.0.2:5000/upload
+    
+    
+## Demo Link:
+https://youtu.be/O0CUF0To6Sg
